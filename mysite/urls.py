@@ -10,9 +10,6 @@ urlpatterns = [
     path('news/', include('news.urls')),
 ]
 
-from django.conf import settings
-from django.conf.urls import include
-
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
