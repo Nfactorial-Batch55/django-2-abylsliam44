@@ -3,3 +3,15 @@ from .models import News, Comment
 
 admin.site.register(News)
 admin.site.register(Comment)
+
+
+class CommentInline(admin.TabularInline):
+    model = Comment
+    extra = 5
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'content', 'created_at', 'has_comments')
+    inlines = [CommentInline]
+
+admin.site.register(Comment)
